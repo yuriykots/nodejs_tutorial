@@ -1,17 +1,10 @@
-var http = require("http")
-var handlers = require("./handlers.js")
 
-var server = http.createServer(function(request, response){
-var url = request.url;
+const express = require("express");
+const app = express();
 
-  if (url === "/") {
-    handlers.homepage(request, response)
-  } else if (url === "/profile"){
-    handlers.profile(request, response)
-  } else {
-    handlers.notFound(request, response)
-  }
+app.get("/", (req, res) => {
+  res.send("hello world")
+})
 
-});
 
-server.listen(3000);
+app.listen(3000);
