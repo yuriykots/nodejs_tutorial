@@ -18,10 +18,12 @@ function authenticate(email, password, done){
     }, done)
 }
 
+//creating a hash and storing in session
 passport.serializeUser(function(user, done){
   done(null, user.id)
 })
 
+//using session cookie to pull up information about user on server side. 
 passport.deserializeUser(function(id, done){
   db("users")
    .where("id", id)
