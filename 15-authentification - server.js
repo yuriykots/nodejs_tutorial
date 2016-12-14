@@ -1,7 +1,12 @@
 const express = require("express")
 const sessions = require("express-sessions")
 const passport = require("passport")
+
+//require out passpot file.
 require("/15-authentification-passport")
+// We need to add database configuration. We can do in separate file to keep server.js clean.
+
+
 
 express()
   .use(session({secret: "I love dogs", resave: false, saveUninitialized: false}))
